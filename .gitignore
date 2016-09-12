@@ -1,1 +1,7 @@
 *.pdf
+676633_70480-SampleCode/
+WebApplication/src/WebApplication/bin/
+WebApplication/src/WebApplication/project.lock.json
+WebApplication/src/WebApplication/obj/
+WebApplication/.vs/
+*.user
