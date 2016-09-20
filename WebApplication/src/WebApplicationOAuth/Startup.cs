@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WebApplicationOAuth.Data;
 using WebApplicationOAuth.Models;
-using WebApplicationOAuth.Services;
+using OpenIddict;
 
 namespace WebApplicationOAuth
 {
@@ -50,7 +50,7 @@ namespace WebApplicationOAuth
             services.AddMvc();
 
             // Register the OpenIddict services, including the default Entity Framework stores.
-            services.AddOpenIddict<ApplicationUser, IdentityRole<Guid>, ApplicationDbContext, Guid>()
+            services.AddOpenIddict<ApplicationUser, IdentityRole, ApplicationDbContext>()
         // Enable the authorization and token endpoints (required to use the code flow).
         .EnableAuthorizationEndpoint("/connect/authorize")
         .EnableTokenEndpoint("/connect/token")

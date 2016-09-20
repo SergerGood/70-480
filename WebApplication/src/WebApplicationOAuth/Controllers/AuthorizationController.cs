@@ -14,10 +14,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Mvc.Server.Models;
-using Mvc.Server.ViewModels.Authorization;
-using Mvc.Server.ViewModels.Shared;
+
 using OpenIddict;
+using WebApplicationOAuth.Models;
 
 namespace Mvc.Server
 {
@@ -47,21 +46,25 @@ namespace Mvc.Server
             var application = await _applicationManager.FindByClientIdAsync(request.ClientId);
             if (application == null)
             {
-                return View("Error", new ErrorViewModel
-                {
-                    Error = OpenIdConnectConstants.Errors.InvalidClient,
-                    ErrorDescription = "Details concerning the calling client application cannot be found in the database"
-                });
+                return View("Error", new Object()
+                //    new ErrorViewModel
+                //{
+                //    Error = OpenIdConnectConstants.Errors.InvalidClient,
+                //    ErrorDescription = "Details concerning the calling client application cannot be found in the database"
+                //}
+                    );
             }
 
             // Flow the request_id to allow OpenIddict to restore
             // the original authorization request from the cache.
-            return View(new AuthorizeViewModel
-            {
-                ApplicationName = application.DisplayName,
-                RequestId = request.RequestId,
-                Scope = request.Scope
-            });
+            return View(
+            //    new AuthorizeViewModel
+            //{
+            //    ApplicationName = application.DisplayName,
+            //    RequestId = request.RequestId,
+            //    Scope = request.Scope
+            //}
+                );
         }
 
         [Authorize, HttpPost("~/connect/authorize/accept"), ValidateAntiForgeryToken]
@@ -71,11 +74,13 @@ namespace Mvc.Server
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return View("Error", new ErrorViewModel
-                {
-                    Error = OpenIdConnectConstants.Errors.ServerError,
-                    ErrorDescription = "An internal error has occurred"
-                });
+                return View("Error", new Object() 
+                //    new ErrorViewModel
+                //{
+                //    Error = OpenIdConnectConstants.Errors.ServerError,
+                //    ErrorDescription = "An internal error has occurred"
+                //}
+                    );
             }
 
             // Create a new ClaimsIdentity containing the claims that
@@ -108,10 +113,12 @@ namespace Mvc.Server
         {
             // Flow the request_id to allow OpenIddict to restore
             // the original logout request from the distributed cache.
-            return View(new LogoutViewModel
-            {
-                RequestId = request.RequestId
-            });
+            return View(
+            //    new LogoutViewModel
+            //{
+            //    RequestId = request.RequestId
+            //}
+                );
         }
 
         [HttpPost("~/connect/logout"), ValidateAntiForgeryToken]

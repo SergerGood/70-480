@@ -2,8 +2,8 @@
   "userSecretsId": "aspnet-WebApplicationOAuth-4b19e434-4155-48d4-bc52-509f1e0ba0f0",
 
   "dependencies": {
-    "AspNet.Security.OAuth.Validation": "1.0.0-alpha2-final",
-    "OpenIddict": "1.0.0-*",
+    "AspNet.Security.OAuth.Validation": "1.0.0-alpha3-0187",
+    "OpenIddict": "1.0.0-alpha2-0440",
     "Microsoft.NETCore.App": {
       "version": "1.0.1",
       "type": "platform"
