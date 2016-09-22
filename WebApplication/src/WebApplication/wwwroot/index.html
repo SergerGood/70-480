@@ -1,66 +1,134 @@
-﻿<!DOCTYPE html>
+﻿<script>
+    window.onload = function () {
+        var elementOuterDiv = document.getElementById("outerDiv");
+        var paragraphs = document.getElementsByTagName("p");
+        var paragraphsByClass = document.getElementsByClassName("subPara");
+        var paragraphsByQuery = document.querySelectorAll("p");
+        var elementByQuery = document.querySelector("#outerDiv");
+
+        var innerDivElement = document.getElementById("innerDiv");
+        //document.removeChild(innerDivElement);
+
+        var innerDivElementAfterRemove = document.getElementById("innerDiv");
+
+        var newElement = document.createElement("article");
+        newElement.innerText = "My new <article> element";
+
+        elementOuterDiv.appendChild(newElement);
+
+        //alert(innerDivElementAfterRemove.innerHTML);
+    }
+</script>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
 <body>
-    <header>
-        <h1>Company Website</h1>
-        <nav>
-            <a href="Home.html">Document Structure</a>
-            <a href="Blog.html">Writing Code</a>
-            <a href="About.html">Styles</a>
-        </nav>
-    </header>
-
-    <article>
+    <details>
         <header>
-            <hgroup>
-                <h1>Our first new Article</h1>
-            </hgroup>
+            <h1>Company Website</h1>
+            <nav>
+                <a href="Home.html">Document Structure</a>
+                <a href="Blog.html">Writing Code</a>
+                <a href="About.html">Styles</a>
+            </nav>
         </header>
-        <section>
-            <h1>Section 1</h1>
-            <p>Some details about section 1</p>
-            <aside>Did you know</aside>
-        </section>
-        <section>
-            <h1>Section 2</h1>
-        </section>
-    </article>
 
-    <article>
-        <header>
-            <hgroup>
-                <h1>Second huge article</h1>
-            </hgroup>
-        </header>
-    </article>
+        <article>
+            <header>
+                <hgroup>
+                    <h1>Our first new Article</h1>
+                </hgroup>
+            </header>
+            <section>
+                <h1>Section 1</h1>
+                <p>Some details about section 1</p>
+                <aside>Did you know</aside>
+            </section>
+            <section>
+                <h1>Section 2</h1>
+            </section>
+        </article>
 
-    <article>
-        <header>
-            <hgroup>
-                <h1>Third huge article</h1>
-            </hgroup>
-        </header>
-        <p>Provide some <mark style="background-color:red;">useful information</mark> in the third article</p>
-        <figure>
-            <img src="orange.jpg" style="width:50px; height:50px;" />
-            <figcaption>Fig 1: A really juicy orange.</figcaption>
-        </figure>
-    </article>
+        <article>
+            <header>
+                <hgroup>
+                    <h1>Second huge article</h1>
+                </hgroup>
+            </header>
+        </article>
 
-    <div>
-        <p>Our goal is to have 1000 users:</p>
-        <span>0</span>
-        <progress value="500" max="1000"></progress>
-        <span>1000</span>
-    </div>
+        <article>
+            <header>
+                <hgroup>
+                    <h1>Third huge article</h1>
+                </hgroup>
+            </header>
+            <p>Provide some <mark style="background-color:red;">useful information</mark> in the third article</p>
+            <figure>
+                <img src="orange.jpg" style="width:50px; height:50px;" />
+                <figcaption>Fig 1: A really juicy orange.</figcaption>
+            </figure>
+        </article>
 
-    <div>
-        <p>Data download is in progress, please wait patiently:</p>
-        <progress max="50"></progress>
+        <div>
+            <p>Our goal is to have 1000 users:</p>
+            <span>0</span>
+            <progress value="500" max="1000"></progress>
+            <span>1000</span>
+        </div>
+
+        <div>
+            <p>Data download is in progress, please wait patiently:</p>
+            <progress max="50"></progress>
+        </div>
+    </details>
+
+    <div id="outerDiv">
+        <p class='mainPara'>Main Paragraph</p>
+        <ul>
+            <li>First List Item</li>
+            <li>Second List Item</li>
+            <li>Third List Item</li>
+            <li>Fourth List Item</li>
+        </ul>
+        <div id="innerDiv">
+            <p class='subPara' id='P1'>Paragraph 1</p>
+            <p class='subPara' id='P2'>Paragraph 2</p>
+            <p class='subPara' id='P3'>Paragraph 3</p>
+            <p class="subPara" id='P4'>Paragraph 4</p>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    Row 1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Row 2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Row 3
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Row 4
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Row 5
+                </td>
+            </tr>
+        </table>
+        <input type="text" /><input type="submit" value="Submit" />
     </div>
 </body>
 </html>
