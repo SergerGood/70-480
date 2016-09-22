@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using WebApplicationOAuth.Data;
 using WebApplicationOAuth.Models;
 using OpenIddict;
+using WebApplicationOAuth.Services;
 
 namespace WebApplicationOAuth
 {
@@ -67,8 +68,8 @@ namespace WebApplicationOAuth
         .AddEphemeralSigningKey();
 
             // Add application services.
-            //services.AddTransient<IEmailSender, AuthMessageSender>();
-            //services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<IEmailSender, AuthMessageSender>();
+            services.AddTransient<ISmsSender, AuthMessageSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
