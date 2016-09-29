@@ -1,4 +1,6 @@
 ﻿<script>
+    var video;
+
     window.onload = function () {
         var elementOuterDiv = document.getElementById("outerDiv");
         var paragraphs = document.getElementsByTagName("p");
@@ -28,6 +30,18 @@
         //innerDivElement.replaceNode(newDiv);
 
         //alert(innerDivElementAfterRemove.innerHTML);
+
+        video = document.getElementById("sampleVideo");
+    }
+
+    function play() {
+        video.play();
+    }
+    function pause() {
+        video.pause();
+    }
+    function back() {
+        video.currentTime -= 10;
     }
 </script>
 
@@ -142,5 +156,30 @@
             <input type="text" /><input type="submit" value="Submit" />
         </div>
     </details>
+
+    <table>
+        <tr>
+            <td>
+                <video autoplay height="400" width="600">
+                    <source src="https://youtu.be/vKgjkzqlLuI" type="video/ogg" />
+                    <source src="https://youtu.be/vKgjkzqlLuI" type="audio/mp4" />
+                    <object>
+                        <p>Video is not supported by this browser.</p>
+                    </object>
+                </video>
+            </td>
+            <td>
+                <img id="backButton" src="backword.png" onclick="back();" /><br />
+                <img id="playButton" src="forward.png" onclick="play();" /><br />
+                <img id="PauseButton" src="pause.png" onclick="pause();" /><br />
+            </td>
+    </table>
+
+    <audio controls>
+        <source src="sample.mp3" type="audio/mp3" />
+        <source src="sample.ogg" type="audio/ogg" />
+        <p>Your browser does not support HTML5 audio.</p>
+    </audio>
+
 </body>
 </html>
